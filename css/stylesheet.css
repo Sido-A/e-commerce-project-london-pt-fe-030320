@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+font-family:'Avenir LT W01 35 Light';
+}
+
+
+a,li,ul,button {
+    list-style: none;
+    text-decoration: none;
+}
+
+hr,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.outer {
+    width: 1326px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.inner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.nav-inner {
+    margin-top: 26px;
+}
+
+.logo img {
+    max-width: 80%;
+
+
+}
+.flex-nav {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+.left-nav {
+    display: inline-flex;
+    width: 1009px;
+    padding: 26px 42px 0 0;
+    
+    
+}
+.left-nav li {
+    padding-right: 42px;
+}
+
+.right-nav {
+    width: 100%;
+    display: flex;
+    text-align: right;
+    padding: 26px 0 18px 100%;
+}
+
+.right-nav li {
+    margin-right: 44px;
+}
+
+.right-nav li:last-child{
+    margin-right: 0;
+}
+
+.search-filter {
+    width: 1326px;
+    margin: 0 auto;
+    display: flex;
+
+}
+
+.search {
+    width: 960px;
+}
+
+.search-icon {
+    display: inline-block;
+}
+
+.search input {
+    width: 95%;
+    font-size: 1.5rem;
+    border: none;
+    
+}
+.filter {
+    width: 298px;
+    margin-left: 45px;
+}
+
+.filter select {
+    width: 298px;
+    font-size: 1.5rem;
+    margin-bottom: 5.5px;
+    border: none;
+}
+
+.carousel-img {
+    color: #fff;
+    margin-top: 55px;
+}
+
+.bg-img {
+    background-image: url(../img/brown.sofa.png);
+    height: 560px;
+}
+
+.bg-img-bk {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 560px;
+}
+
+.eye-catch {
+    margin-left: 80px;
+
+}
+
+.main-h1 {
+    font-size: 3rem;
+    padding-top: 64px;
+}
+
+.sub-h2 {
+    font-size: 1.6rem;
+    border-bottom: 1px solid #fff;
+    width: 185px;
+}
+
+.footer {
+    margin-top: 105px;
+    margin-bottom: 100px;
+}
+
+.footer-inner {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 61px;
+}
+
+.sub-footer-nav {
+}
+
+.sub-footer-ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 2rem 5rem 2rem 0;
+}
+
+.sub-footer-ul li{
+    padding-right: 50px;
+}
+
+
+.sub-footer-ul a {
+    padding: 10px;
+}
+
+.social-media-ul {
+    display: flex;
+}
+
+.footer-social-media {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-social-media li {
+    padding: 20px 50px 5px 5px;
+}
+
+.footer-social-media li:last-child{
+    padding-right: 5px;
+}
