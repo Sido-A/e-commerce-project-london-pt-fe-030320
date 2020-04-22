@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalise.css">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">    
+    <title>SOFAS -Shop</title>
+</head>
+<body>
+    <div class="overflowHidden">
+        <header class="top-header outer">
+            <div class="nav-inner inner flex-nav">
+                <nav>
+                    <ul class="left-nav">
+                        <li class="logo"><a href="#"><img src="./img/logo.desktop.png" alt="logo"></a></li>
+                        <li class="list-item"><a href="./index.html" class="home">HOME</a></li>
+                        <li class="list-item"><a href="./shop.html" class="shop">SHOP</a></li>
+                        <li class="list-item"><a href="#" class="magazine">MAGAZINE</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="right-nav">
+                        <li class="list-item"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></li>
+                        <li class="list-item"><a href="#">LOGIN</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+<form class="search-filter outer">
+    <div class="search-wrapper">
+        <input id="searchInput" name="search" type="text" />
+    </div><!-- search-wrapper -->
+    <div class="filter-wrapper">
+        <select name="bestMatch" id="bestMatch">
+            <option value="bestMatch">Best Match</option>
+            <option value="highest">Price: Highest first</option>
+            <option value="lowest">Price: Lowest first</option>
+        </select>
+    </div>
+    <!--filter-wrapper-->
+</form>
+<!--search-filter outer-->
+
+<div class="two-colum-desktop outer">
+<aside class="filter-by-wrapper left-side">
+        <p class="filter-by-title">FILTER BY</p>
+            <!-- test -->
+            <p class="collection-title filter-title" id="collectionTitle">Collection<span class="collection-span arrow down"></span></p>
+            <div class="collection-check toggle">
+                <input type="checkbox" name="color" value="#">
+                <label for="green">Collection</label>
+            </div>
+
+            <p class="color-title filter-title" id="colorTitle">Color<span class="color-span arrow down"></span></p>
+            <div class="color-check toggle">
+                <!-- <div class="individualColor">
+                    <input type="checkbox" name="color" id="green" value="green">
+                    <label for="green">Color</label>
+                </div> -->
+            </div>
+
+            <p class="category-title filter-title" id="categoryTitle">Category<span class="category-span arrow down"></span></p>
+            <div class="category-check toggle">
+                <!-- <div class="individualCategory">
+                    <input type="checkbox" name="category" id="#" value="#">
+                    <label for="#">Category</label>
+                </div> -->
+            </div>
+        <p>Price Range</p>
+</aside>
+<!--filter-by-wrapper-->
+
+<main class="list-of-items">
+   
+</main>
+
+</div><!--two-colum-desktop outer-->
+
+<div class="next-page-container outer">
+    <ul class="next-page">
+        <li class="page-number">1</li>
+        <li class="page-number">2</li>
+        <li class="page-number">3</li>
+        <li class="page-number">4</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="footer outer">
+    <hr class="footer-line">
+    <div class="footer-inner inner">
+        <nav class="sub-footer-nav">
+            <ul class="sub-footer-ul">
+                <li class="list-item"><a href="#about">About us</a></li>
+                <li class="list-item"><a href="#help">How can we help</a></li>
+                <li class="list-item"><a href="#room">Shop by room</a></li>
+                <li class="list-item"><a href="#style">Shop by style</a></li>
+            </ul>
+        </nav>
+        <!--footer-nav-->
+        <nav class="footer-social-media">
+            <ul class="social-media-ul">
+                <li class="list-item social-media-item instagram"><a href=""><img src="./img/instagram.png"
+                            alt=""></a></li>
+                <li class="list-item social-media-item facebook"><a href=""><img src="./img/facebook logo.png"
+                            alt=""></a></li>
+                <li class="list-item social-media-item twitter"><a href=""><img src="./img/twitter.png" alt=""></a></li>
+            </ul>
+        </nav>
+        <!--footer-social-media-->
+    </div>
+    <!--footer-inner-->
+</footer>
+    
+    
+    </div>
+    <!--overflow hidden-->
+    <script src="./products.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <script src="./shop.js"></script>
+</body>
+</html>

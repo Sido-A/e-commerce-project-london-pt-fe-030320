@@ -1,182 +1,468 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 62.5%;
-font-family:'Avenir LT W01 35 Light';
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  font-family: "Avenir Next", "roboto";
+  src: url("http://www.yoursite.com/fonts/Avenir_Next.otf");
 }
 
-
-a,li,ul,button {
-    list-style: none;
-    text-decoration: none;
+/*global style*/
+a,
+li,
+ul,
+button {
+  list-style: none;
+  text-decoration: none;
 }
 
-hr,h1,h2,h3,h4,h5,h6 {
-    margin: 0;
-    padding: 0;
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+/*header & footer list style*/
+.list-item a {
+  color: #22232b;
+  font-weight: 900;
 }
 
+.list-item a:hover {
+  color: #00c98d;
+}
+
+.list-item a:active {
+  color: #00c98d;
+}
+
+/*header, main,footer style*/
 .outer {
-    width: 1326px;
-    max-width: 100%;
-    margin: 0 auto;
+  width: 1326px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .inner {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
+/*individual style for header*/
 .nav-inner {
-    margin-top: 26px;
+  margin-top: 26px;
 }
 
 .logo img {
-    max-width: 80%;
-
-
+  max-width: 80%;
 }
 .flex-nav {
-    display: inline-flex;
-    vertical-align: middle;
-    font-size: 0.9rem;
+  display: inline-flex;
+  vertical-align: middle;
+  font-size: 0.9rem;
 }
 
 .left-nav {
-    display: inline-flex;
-    width: 1009px;
-    padding: 26px 42px 0 0;
-    
-    
+  display: inline-flex;
+  width: 1009px;
+  padding: 26px 42px 0 0;
 }
 .left-nav li {
-    padding-right: 42px;
+  padding-right: 42px;
 }
 
 .right-nav {
-    width: 100%;
-    display: flex;
-    text-align: right;
-    padding: 26px 0 18px 100%;
+  width: 100%;
+  display: flex;
+  padding: 26px 0 18px 65%;
 }
 
 .right-nav li {
-    margin-right: 44px;
+  margin-right: 44px;
 }
 
-.right-nav li:last-child{
-    margin-right: 0;
+.right-nav li:last-child {
+  margin-right: 0;
 }
 
+.cartButton {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/*individual style for search & filter*/
 .search-filter {
-    width: 1326px;
-    margin: 0 auto;
-    display: flex;
-
+  width: 1326px;
+  margin: 0 auto;
+  display: flex;
 }
 
-.search {
-    width: 960px;
+.search-wrapper {
+  width: 960px;
+  margin-top: 4px;
 }
 
 .search-icon {
-    display: inline-block;
+  display: inline-block;
 }
 
-.search input {
-    width: 95%;
-    font-size: 1.5rem;
-    border: none;
-    
-}
-.filter {
-    width: 298px;
-    margin-left: 45px;
+.search-wrapper input {
+  background: url(../img/Search.png) no-repeat;
+  width: 100%;
+  max-width: 100%;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  margin-bottom: 2px;
+  border: none;
+  border-bottom: 1.2px solid #979797;
 }
 
-.filter select {
-    width: 298px;
-    font-size: 1.5rem;
-    margin-bottom: 5.5px;
-    border: none;
+.search-wrapper input:focus {
+  background-image: none;
+  outline: 0;
+  box-shadow: 0 0 2px 1px #979797;
+}
+
+.filter-wrapper {
+  width: 298px;
+  max-width: 100%;
+  margin-left: 45px;
+}
+
+.filter-wrapper select {
+  width: 298px;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1.2px solid #979797;
+}
+
+.filter-wrapper select:focus {
+  outline: 0;
+  box-shadow: 0 0 2px 2px #979797;
+}
+
+/*individual style for main*/
+.carousel-wrapper {
+  color: #fff;
+  margin-top: 55px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-img img {
+  max-width: 1326px;
 }
 
 .carousel-img {
-    color: #fff;
-    margin-top: 55px;
-}
-
-.bg-img {
-    background-image: url(../img/brown.sofa.png);
-    height: 560px;
+  display: flex;
+  /* transform: translate(0%,0); */
+  height: 560px;
+  object-fit: cover;
 }
 
 .bg-img-bk {
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 560px;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 560px;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .eye-catch {
-    margin-left: 80px;
-
+  margin-left: 80px;
 }
 
 .main-h1 {
-    font-size: 3rem;
-    padding-top: 64px;
+  font-size: 3rem;
+  padding-top: 64px;
 }
 
 .sub-h2 {
-    font-size: 1.6rem;
-    border-bottom: 1px solid #fff;
-    width: 185px;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #fff;
+  width: 185px;
 }
 
+/* next and prev btn */
+/* https://bagelee.com/design/css/css-triangle/ */
+.carousel-button-next {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 2px solid;
+  border-color: #fff #fff transparent transparent;
+  opacity: 0.7;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 95%;
+}
+
+.carousel-button-prev {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  opacity: 0.7;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 2%;
+}
+
+/*individual style for footer*/
 .footer {
-    margin-top: 105px;
-    margin-bottom: 100px;
+  margin-top: 105px;
+  margin-bottom: 100px;
 }
 
 .footer-inner {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 61px;
-}
-
-.sub-footer-nav {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 61px;
 }
 
 .sub-footer-ul {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin: 2rem 5rem 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 2rem 5rem 2rem 0;
 }
 
-.sub-footer-ul li{
-    padding-right: 50px;
+.sub-footer-ul li {
+  padding-right: 50px;
 }
-
 
 .sub-footer-ul a {
-    padding: 10px;
+  padding: 10px;
 }
 
 .social-media-ul {
-    display: flex;
+  display: flex;
 }
 
 .footer-social-media {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.footer-social-media li {
-    padding: 20px 50px 5px 5px;
+.social-media-item {
+  padding: 20px 50px 5px 5px;
 }
 
-.footer-social-media li:last-child{
-    padding-right: 5px;
+.social-media-item img:hover {
+  background-color: #00c98d;
+}
+
+.social-media-item:last-child {
+  padding-right: 5px;
+}
+
+.two-colum-desktop {
+  display: flex;
+  margin-top: 55px;
+}
+
+.left-side {
+  width: 340px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.filter-by-wrapper select {
+  cursor: pointer;
+}
+
+.filter-by-wrapper select {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #979797;
+  width: 300px;
+  padding-bottom: 12px;
+  margin-top: 25px;
+}
+
+.filter-by-title {
+  color: #979797;
+  margin-bottom: 50px;
+  font-size: 1.3rem;
+}
+
+.filter-title {
+  width: 280px;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1.2px solid #979797;
+  position: relative;
+  overflow: hidden;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 8px;
+  height: 8px;
+  border: 4px solid;
+  border-color: transparent #000 #000 transparent;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 90%;
+  /* background-color: red; */
+}
+
+.color-check, .category-check {
+  display: none;
+}
+
+.individualColor {
+    margin-bottom: 15px;
+}
+
+.individualColor input[type="checkbox"] {
+  display: none;
+}
+
+.designedCheckbox {
+  position: relative;
+  padding: 0 0 0 55px;
+  text-transform: capitalize;
+}
+
+.designedCheckbox::after,
+.designedCheckbox::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 40%;
+  cursor: pointer;
+}
+
+.designedCheckbox::after {
+  left: 15px;
+  padding: 2px;
+  margin-top: -10px; /* the position of check box */
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aaaaaa;
+  border-radius: 6px;
+}
+
+.designedCheckbox::before {
+  left: 24px; /* position of check */
+  margin-top: -6px; /* position of check */
+  width: 7px; /* size of the box (tick inside) */
+  height: 13px; /* height of the box (tick inside) */
+  border-right: 3px solid #0171bd;
+  border-bottom: 3px solid #0171bd;
+  transform: rotate(45deg); /* rotate the tick */
+  opacity: 0; /* clear when no checked */
+}
+
+.color-check input[type="checkbox"]:checked + .designedCheckbox::before {
+  opacity: 1;
+}
+
+.list-of-items {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.item {
+  height: 346px;
+  font-size: 1.6em;
+  position: relative;
+  margin-right: 4px;
+  margin-bottom: 48px;
+  min-width: calc(33.33333333% - 86px / 3);
+  overflow: hidden;
+}
+
+.item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.item-details {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.name-type {
+  background-color: #fff;
+  width: 191px;
+  height: 126px;
+  position: absolute;
+  top: 65%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.name-type p {
+  margin-bottom: 5px;
+}
+
+.item-type {
+  color: #979797;
+  font-size: 0.7em;
+  margin-top: 0;
+}
+
+.price-submit {
+  width: 40%;
+  position: absolute;
+  top: 75%;
+  right: 0;
+  left: 60%;
+  text-align: right;
+}
+
+.addToCart {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.next-page-container {
+  margin-top: 68px;
+}
+
+.next-page {
+  display: flex;
+  justify-content: center;
+}
+
+.page-number {
+  background-color: #e2dfdf;
+  padding: 13px;
+  margin-right: 10px;
+}
+
+.page-number:hover {
+  cursor: pointer;
+  background-color: #00c98d;
 }
