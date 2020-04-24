@@ -1,7 +1,12 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-size: 62.5%;
+  background-color: #fff;
   font-family: "Avenir Next", "roboto";
   src: url("http://www.yoursite.com/fonts/Avenir_Next.otf");
 }
@@ -41,8 +46,7 @@ h6 {
 
 /*header, main,footer style*/
 .outer {
-  width: 1326px;
-  max-width: 100%;
+  max-width: 1326px;
   margin: 0 auto;
 }
 
@@ -137,6 +141,7 @@ h6 {
   font-size: 1.5rem;
   padding: 5px 10px;
   border: none;
+  background-color: #fff;
   border-bottom: 1.2px solid #979797;
 }
 
@@ -278,6 +283,8 @@ h6 {
   padding-right: 5px;
 }
 
+
+/* item view lists shop.html */
 .two-colum-desktop {
   display: flex;
   margin-top: 55px;
@@ -293,14 +300,6 @@ h6 {
   cursor: pointer;
 }
 
-.filter-by-wrapper select {
-  display: block;
-  border: none;
-  border-bottom: 1px solid #979797;
-  width: 300px;
-  padding-bottom: 12px;
-  margin-top: 25px;
-}
 
 .filter-by-title {
   color: #979797;
@@ -309,9 +308,9 @@ h6 {
 }
 
 .filter-title {
-  width: 280px;
+  width: 80%;
   font-size: 1.5rem;
-  padding: 5px 10px;
+  padding: 10px;
   border: none;
   border-bottom: 1.2px solid #979797;
   position: relative;
@@ -320,9 +319,9 @@ h6 {
 
 .arrow {
   cursor: pointer;
-  width: 8px;
-  height: 8px;
-  border: 4px solid;
+  width: 18px;
+  height: 18px;
+  border: 3px solid;
   border-color: transparent #000 #000 transparent;
   transform: rotate(45deg);
   position: absolute;
@@ -337,53 +336,132 @@ h6 {
   display: none;
 }
 
-.individualColor {
+.individualColor, .individualCategory {
     margin-bottom: 15px;
 }
 
-.individualColor input[type="checkbox"] {
-  display: none;
+.individualColor input[type="checkbox"],
+.individualCategory input[type="checkbox"] {
+    display: none;
 }
 
 .designedCheckbox {
-  position: relative;
-  padding: 0 0 0 55px;
-  text-transform: capitalize;
+    position: relative;
+    padding: 0 0 0 55px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+
+.designedCheckbox:checked{
+        background-color: #00c98d;
+
 }
 
 .designedCheckbox::after,
 .designedCheckbox::before {
-  position: absolute;
-  content: "";
-  display: block;
-  top: 40%;
-  cursor: pointer;
+    position: absolute;
+    content: "";
+    display: block;
+    top: 40%;
+    cursor: pointer;
 }
 
 .designedCheckbox::after {
-  left: 15px;
-  padding: 2px;
-  margin-top: -10px; /* the position of check box */
-  width: 20px;
-  height: 20px;
-  border: 2px solid #aaaaaa;
-  border-radius: 6px;
+    left: 15px;
+    padding: 2px;
+    margin-top: -10px; /* the position of check box */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaaaaa;
+    border-radius: 6px;
 }
 
 .designedCheckbox::before {
-  left: 24px; /* position of check */
-  margin-top: -6px; /* position of check */
-  width: 7px; /* size of the box (tick inside) */
-  height: 13px; /* height of the box (tick inside) */
-  border-right: 3px solid #0171bd;
-  border-bottom: 3px solid #0171bd;
-  transform: rotate(45deg); /* rotate the tick */
-  opacity: 0; /* clear when no checked */
+    left: 24px; /* position of check */
+    margin-top: -6px; /* position of check */
+    width: 7px; /* size of the box (tick inside) */
+    height: 13px; /* height of the box (tick inside) */
+    border-right: 3px solid #0171bd;
+    border-bottom: 3px solid #0171bd;
+    transform: rotate(45deg); /* rotate the tick */
+    opacity: 0; /* clear when no checked */
 }
 
 .color-check input[type="checkbox"]:checked + .designedCheckbox::before {
-  opacity: 1;
+    opacity: 1;
 }
+
+.category-check input[type="checkbox"]:checked + .designedCheckbox::before {
+    opacity: 1;
+}
+
+
+/* price drag  */
+.price-range-wrap {
+    width: 85%;
+}
+.price-range-title {
+    padding-left: 10px;
+}
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;  
+  background: #979797;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgb(24, 22, 22);
+  border-radius: 50%; 
+  background: #fff;
+  cursor: pointer;
+}
+
+
+.slideContainer {
+    display: flex;
+    position: relative;
+}
+
+.slider {
+    border: none;
+    color: #fff;
+}
+
+.sliderMin {
+    position: absolute;
+    width: 50%;
+
+}
+
+.sliderMax {
+    position: absolute;
+    width: 50%;
+    left: 49%;
+}
+
+.slideContainer p {
+    padding-top: 5px;
+    font-size: .6em;
+}
+
+.max {
+    width: 100%;
+    text-align: right;
+}
+
+
+
+
 
 .list-of-items {
   display: flex;
@@ -392,17 +470,24 @@ h6 {
 }
 
 .item {
-  height: 346px;
-  font-size: 1.6em;
-  position: relative;
-  margin-right: 4px;
-  margin-bottom: 48px;
-  min-width: calc(33.33333333% - 86px / 3);
-  overflow: hidden;
+    cursor: pointer;
+    height: 346px;
+    font-size: 1.6em;
+    position: relative;
+    margin-right: 41px;
+    margin-bottom: 48px;
+    min-width: calc(33.33333333% - 86px / 3);
+    overflow: hidden;
+    box-shadow: .1px .1px 5px 1px #f2f2f2;
+}
+
+.item:hover {
+    transform: scale(1.1);
+
 }
 
 .item:nth-child(3n) {
-  margin-right: 0;
+    margin-right: 0;
 }
 
 .item-details {
@@ -413,7 +498,7 @@ h6 {
 
 .name-type {
   background-color: #fff;
-  width: 191px;
+  width: 180px;
   height: 126px;
   position: absolute;
   top: 65%;
@@ -424,6 +509,7 @@ h6 {
 
 .name-type p {
   margin-bottom: 5px;
+  padding: 2px 0 0 15px;
 }
 
 .item-type {
@@ -435,10 +521,13 @@ h6 {
 .price-submit {
   width: 40%;
   position: absolute;
-  top: 75%;
+  top: 73%;
   right: 0;
-  left: 60%;
+  left: 55%;
   text-align: right;
+}
+
+.price-submit {
 }
 
 .addToCart {
@@ -465,4 +554,148 @@ h6 {
 .page-number:hover {
   cursor: pointer;
   background-color: #00c98d;
+}
+
+
+/* item preview page, preview.html */
+
+.preview-wrapper {
+    margin-top: 110px;
+}
+.red {
+    font-size: 1rem;
+    border: 1px solid red;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.preview-description{
+    border: 1px solid blue;
+    display: flex;
+}
+
+.preview-img{
+    border: 1px solid green;    
+    width: 683px;
+    height: 330px;
+    filter: brightness(70%);
+}
+
+.preview-item-details {
+    width: 264px;
+    border: 1px solid yellow;
+    margin-left: 18px;
+}
+
+.preview-item-tagline {
+    font-size: .8em;
+    width: 70%;
+    
+}
+
+.preview-color {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.color-radio {
+    background-color: red;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+}
+.btns {
+    margin-top: 7px;
+}
+.add-to-basket, .detail-toggle {
+    text-align: center;
+    font-size: .8em;
+    letter-spacing: 2px;
+    width: 100%;
+    height: 40px;
+    margin-top: 6px;
+}
+
+ .add-to-basket {
+    color: #fff;
+    background-color: #131313;
+    border: 1px solid #131313;
+}
+
+.detail-toggle{
+    border: 1px solid #131313;
+}
+
+.detail-toggle p {
+    position: relative;
+}
+
+.detail-toggle span {
+  cursor: pointer;
+  width: 8px;
+  height: 8px;
+  border: 3px solid;
+  border-color: transparent #131313 #131313 transparent;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -10%;
+  right: 0;
+  bottom: 0;
+  left: 90%;
+  /* background-color: red; */
+}
+
+
+.slides {
+    display: flex;
+    position: relative;
+}
+
+.slides::before, 
+.slides::after {
+    content: "";
+    cursor: pointer;
+    width: 8px;
+    height: 8px;
+    border: 3px solid;
+    border-color: transparent #131313 #131313 transparent;
+    position: absolute;
+
+
+}
+
+.slides::before {
+    transform: rotate(135deg);
+    top: 37%;
+    right: 0;
+    bottom: 0;
+    left: 1%;
+}
+
+.slides::after {
+    transform: rotate(-45deg);
+    top: 37%;
+    right: 0;
+    bottom: 0;
+    left: 33%;
+}
+
+.slide-img {
+    margin: 30px;
+    width: 55%;
+    filter: brightness(80%);
+
+}
+
+.slide-img div {
+    display: inline-flex;
+    border: 1px solid #131313;
+    margin-right: 10px;
+}
+
+.preview-toggle-details {
+    /* display: none; */
+    font-size: .8em;
 }

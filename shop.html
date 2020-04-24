@@ -49,28 +49,46 @@
 <aside class="filter-by-wrapper left-side">
         <p class="filter-by-title">FILTER BY</p>
             <!-- test -->
-            <p class="collection-title filter-title" id="collectionTitle">Collection<span class="collection-span arrow down"></span></p>
-            <div class="collection-check toggle">
-                <input type="checkbox" name="color" value="#">
-                <label for="green">Collection</label>
+            <div class="collection-wrap">
+                <p class="collection-title filter-title" id="collectionTitle">Collection<span class="collection-span arrow down"></span>
+                </p>
+                <div class="collection-check toggle">
+                    <!-- <div class="individualColor">
+                            <input type="checkbox" name="collection" value="#">
+                            <label for="collection">Collection</label>
+                        </div> -->
+                </div>
             </div>
 
-            <p class="color-title filter-title" id="colorTitle">Color<span class="color-span arrow down"></span></p>
-            <div class="color-check toggle">
+            <div class="color-wrap">
+                <p class="color-title filter-title" id="colorTitle">Color<span class="color-span arrow down"></span></p>
+                <div class="color-check toggle">
                 <!-- <div class="individualColor">
-                    <input type="checkbox" name="color" id="green" value="green">
-                    <label for="green">Color</label>
+                        <input type="checkbox" name="color" id="green" value="green">
+                        <label for="green">Color</label>
                 </div> -->
+                </div>
             </div>
 
-            <p class="category-title filter-title" id="categoryTitle">Category<span class="category-span arrow down"></span></p>
-            <div class="category-check toggle">
+            <div class="category-wrap">
+                <p class="category-title filter-title" id="categoryTitle">Category<span class="category-span arrow down"></span></p>
+                <div class="category-check toggle">
                 <!-- <div class="individualCategory">
-                    <input type="checkbox" name="category" id="#" value="#">
-                    <label for="#">Category</label>
-                </div> -->
+                        <input type="checkbox" name="category" id="#" value="#">
+                        <label for="#">Category</label>
+                    </div> -->
+                </div>
             </div>
-        <p>Price Range</p>
+            
+            <div class="price-range-wrap">
+                <p class="price-range-title">Price Range</p>                    
+                <div class="slideContainer">
+                    <input type="range" min="0" max="50" value="0" class="slider sliderMin">
+                    <p class="min">£0</p> 
+                    <input type="range" min="50" max="1000" value="1000" class="slider sliderMax">
+                    <p class="max">£10,000+</p>
+                </div>
+            </div>
 </aside>
 <!--filter-by-wrapper-->
 

@@ -22,6 +22,10 @@
 const checkboxWithColor = document.querySelector(".color-check");
 const checkboxWithCategory = document.querySelector(".category-check");
 const listOfItems = document.querySelector(".list-of-items");
+const maxPrice = [...PRODUCTS].sort((a, b)=> b.price - a.price)[0].price;
+// console.log(maxPrice);
+
+
 
 // main item window
 const eachItemsDisplay = (items) => {
@@ -71,6 +75,8 @@ const eachColor = (colors)=> {
         colorDiv.appendChild(tickColors); // append input[type=checkbox] to child(colorDiv)
         colorDiv.appendChild(colorName); // append label to child(colorDiv)    
     }
+
+    ticked();
 }
 
 const eachCategory = (types)=>{
@@ -93,23 +99,60 @@ const eachCategory = (types)=>{
         categoryDiv.appendChild(tickCategory); // append input[type=checkbox] to child(categoryDiv)
         categoryDiv.appendChild(categoryName); // append label to child(categoryDiv)    
     });
+
 }
 
+const applyFilters = (sortedColors,selectedColors)=> {
+    // console.log(sortedColors);
+    
+        console.log("sorted: "+sortedColors);
+        console.log("selected: "+selectedColors);
+        const sorted = sortedColors.forEach(sortedColor => sortedColor(selectedColors));
+        console.log("yo"+ sorted);
+        
+        if (selectedColors.includes(sorted)) {            
+            console.log("MATCHED");
+        }
+        
+
+    
+    /**
+    // const filteredProducts = PRODUCTS.filter(product =>{
+    //     if (product.price >= minPrice && product.price <= maxPrice) {
+    //         return true            
+    //     }else{
+    //         return false
+    //     }
+    // }).filter(sortedColors => {
+
+    // })
+    // eachItemsDisplay(selectedColors)
+         */
+
+} 
 
 // // get the element that got ticked
-// const ticked = ()=> {
-//     const tickTheBox = document.querySelectorAll(".designedCheckbox");
-//     for (let i = 0; i < tickTheBox.length; i++) {
-//         const element = tickTheBox[i];
-//         element.addEventListener("click",(e)=> {
-//             // console.log(e.target);
-            
-//         })
+const ticked = (sortedNewColorsArr)=> {
+    // const tickTheBox = document.querySelectorAll(".designedCheckbox");
+    const inputCheckbox = document.querySelectorAll("[type='checkbox']");    
+    const selectedColorsArr = [];    
+    
+    for (let i = 0; i < inputCheckbox.length; i++) {
+        const element = inputCheckbox[i];
+        // console.log(element); // 18
         
-        
-//     }
-// }
-// ticked();
+        element.addEventListener("click",(e)=> {
+            if (element.checked === true) {
+                // console.log(element.value);                
+                selectedColorsArr.push(element.value) 
+            } else {
+                console.log("by");                
+            }     
+            // console.log(selectedColorsArr);
+            applyFilters(sortedNewColorsArr, selectedColorsArr);     
+        })   
+    }
+}
 
 
 // sorting duplicated colors
@@ -124,8 +167,9 @@ const sortedColors = () => {
             newColorArr.push(el);
         }
     }
-    const sortedArr = new Set(newColorArr);    
-    eachColor(sortedArr);
+    const sortedNewColorsArr = [...new Set(newColorArr)];    
+    eachColor(sortedNewColorsArr);
+    ticked(sortedNewColorsArr)
 }
 sortedColors();
 
@@ -147,7 +191,7 @@ const toggleFilter = ()=>{
 
         arrow.addEventListener("click", (e) => {
             if (e.target.classList.contains("down")) {
-                console.log(e.target);
+                // console.log(e.target);
                 e.target.classList.remove("down")
                 arrow.style.transform = "rotate(-135deg)"
                 arrow.style.transitionDuration = ".6s"
@@ -177,3 +221,17 @@ const toggleFilter = ()=>{
 }
 
 toggleFilter();
+
+const sliderDrag = ()=> {
+    const slideContainer = document.querySelector(".slideContainer");
+    const sliderMin = slideContainer.querySelector(".sliderMin");
+    const sliderMax = slideContainer.querySelector(".sliderMax");
+    slideContainer.addEventListener("input", ()=>{
+        const min = slideContainer.querySelector(".min");
+        const max = slideContainer.querySelector(".max");
+        min.innerHTML = sliderMin.value;
+        max.innerHTML = sliderMax.value;
+    })    
+}
+
+sliderDrag();
