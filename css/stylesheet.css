@@ -113,8 +113,8 @@ h6 {
   color: #fff;
   font-size: .7rem;
   font-weight: 600;
-  background-color: red;
-  border: 1px solid red;
+  background-color: #00c98d;
+  border: 1px solid #00c98d;
   border-radius: 50%;
   padding: 10% 20%;
   position: absolute;
@@ -545,6 +545,9 @@ h6 {
   padding: 0;
   margin: 0;
   display: flex;
+  /* background-color: red; */
+  overflow: hidden;
+  height: 25%;
 }
 
 .name-type {

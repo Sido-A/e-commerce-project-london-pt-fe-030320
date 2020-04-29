@@ -1,4 +1,4 @@
-@media screen and (max-width: 320px){
+@media screen and (max-width: 425px){
 
     .outer {
         max-width: 300px;
@@ -127,6 +127,10 @@
         
     }
 
+    .footer-line {
+        margin-top: 50px;
+    }
+
     .footer-inner {
         /* font-size: .1em; */
         flex-direction: column;
@@ -177,10 +181,11 @@
     .mobile-best-match {
         display: block;
         margin: 0 auto;
-        margin-top: 20px;        
-        width: 75%;
+        margin-top: 20px; 
+        width: 100%;
+        max-width: 200px;
         margin: 0 auto;
-        margin-top: 10px;
+        margin-top: 30px;
     }
 
     .mobile-best-match select {
@@ -221,10 +226,10 @@
     .list-of-items {
         max-width: 80%;
         margin: 0 auto;
+        margin-top: 100px;
     }
 
     .item-details {
-        border: 1px solid red;
         overflow: hidden;
     }
 
@@ -234,16 +239,22 @@
     }
     
     .name-type {
-        max-width: 130px;
+        width: 100%;
+        max-width: 140px;
         
     }
 
     .price-submit {
         background-color: #fff;
-        width: 99px;
+        width: 45%;
+        max-width: 109px;
         padding: 8px;
     }
     
+    #pagination button{
+        margin-right: 5px;
+
+    }
 
 
 }
