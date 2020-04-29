@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalise.css">
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/responsive.css">    
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     
     <title>SOFAS</title>
@@ -14,17 +15,17 @@
 <div class="overflowHidden">
 <header class="top-header outer">
     <div class="nav-inner inner flex-nav">
-        <nav >
+        <nav class="navOne">
             <ul class="left-nav">
                 <li class="logo"><a href="#"><img src="./img/logo.desktop.png" alt="logo"></a></li>
-                <li class="list-item"><a href="index.html" class="home">HOME</a></li>
+                <li class="list-item nav-item current"><a href="index.html" class="home">HOME</a></li>
                 <li class="list-item"><a href="shop.html" class="shop">SHOP</a></li>
                 <li class="list-item"><a href="#" class="magazine">MAGAZINE</a></li>
             </ul>
         </nav>
-        <nav>
+        <nav class="navTwo">
             <ul class="right-nav">
-                <li class="list-item"><a href="#"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></a></li>
+                <li><a href="#"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></a></li>
                 <li class="list-item"><a href="#">LOGIN</a></li>
             </ul>
         </nav>        
@@ -35,8 +36,8 @@
     <div class="search-wrapper">        
         <input id="searchInput" name="search" type="text"/>
     </div><!-- search-wrapper -->
-    <div class="filter-wrapper">
-        <select name="bestMatch" id="bestMatch">
+    <div class="match-wrapper filter-wrapper">
+        <select class="bestMatch" id="bestMatch">
             <option value="bestMatch">Best Match</option>
             <option value="highest">Price: Highest first</option>
             <option value="lowest">Price: Lowest first</option>
@@ -59,6 +60,11 @@
             <div class="carousel-button">
                 <div class="carousel-button-next"></div>
                 <div class="carousel-button-prev"></div>
+            </div>
+            <div class="carousel-radio">
+                <div class="mobile carousel-radio-next"><input type="radio"></div>
+                <div class="mobile carousel-radio-middle"><input type="radio"></div>
+                <div class="mobile carousel-radio-prev"><input type="radio"></div>
             </div>
         </div><!--bg-img-dk-->
     </div><!--carousel-->

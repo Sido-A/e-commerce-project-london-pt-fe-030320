@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalise.css">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    <title>SOFAS</title>
+</head>
+
+<body>
+    <div class="overflowHidden">
+        <header class="top-header outer">
+            <div class="nav-inner inner flex-nav">
+                <nav>
+                    <ul class="left-nav">
+                        <li class="logo"><a href="#"><img src="./img/logo.desktop.png" alt="logo"></a></li>
+                        <li class="list-item"><a href="index.html" class="home">HOME</a></li>
+                        <li class="list-item"><a href="shop.html" class="shop">SHOP</a></li>
+                        <li class="list-item"><a href="#" class="magazine">MAGAZINE</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="right-nav">
+                        <li class="cart"><a href="#"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></a>
+                        </li>
+                        <li class="list-item"><a href="#">LOGIN</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <form class="search-filter outer">
+            <div class="search-wrapper">
+                <input id="searchInput" name="search" type="text" />
+            </div><!-- search-wrapper -->
+            <div class="filter-wrapper">
+                <select name="bestMatch" id="bestMatch">
+                    <option value="bestMatch">Best Match</option>
+                    <option value="highest">Price: Highest first</option>
+                    <option value="lowest">Price: Lowest first</option>
+                </select>
+            </div>
+            <!--filter-wrapper-->
+        </form>
+        <!--search-filter outer-->
+
+        <main class="main carousel-wrapper outer">
+            <div class="carousel">
+                <div class="carousel-img">
+                    <img class="carousel-photo default" src="./img/brown.carousel.couch.png" alt="brown sofa">
+                    <img class="carousel-photo" src="./img/white.carousel.couch.png" alt="white sofa">
+                    <img class="carousel-photo" src="./img/bedroom.png" alt="bedroom">
+                </div>
+                <div class="bg-img-bk">
+                    <div class="eye-catch">
+                        <h1 class="main-h1">CREATE YOUR CALM</h1>
+                        <h2 class="sub-h2">Relax right here</h2>
+                    </div>
+                    <!--eye-catch-->
+                    <div class="carousel-button">
+                        <div class="carousel-button-next"></div>
+                        <div class="carousel-button-prev"></div>
+                    </div>
+                </div>
+                <!--bg-img-dk-->
+            </div>
+            <!--carousel-->
+
+        </main>
+
+        <footer class="footer outer">
+            <hr class="footer-line line">
+            <div class="footer-inner inner">
+                <nav class="sub-footer-nav">
+                    <ul class="sub-footer-ul">
+                        <li class="list-item"><a href="#about">About us</a></li>
+                        <li class="list-item"><a href="#help">How can we help</a></li>
+                        <li class="list-item"><a href="#room">Shop by room</a></li>
+                        <li class="list-item"><a href="#style">Shop by style</a></li>
+                    </ul>
+                </nav>
+                <!--footer-nav-->
+                <nav class="footer-social-media">
+                    <ul class="social-media-ul">
+                        <li class="list-item social-media-item instagram"><a href=""><img src="./img/instagram.png"
+                                    alt=""></a></li>
+                        <li class="list-item social-media-item facebook"><a href=""><img src="./img/facebook logo.png"
+                                    alt=""></a></li>
+                        <li class="list-item social-media-item twitter"><a href=""><img src="./img/twitter.png"
+                                    alt=""></a></li>
+                    </ul>
+                </nav>
+                <!--footer-social-media-->
+            </div>
+            <!--footer-inner-->
+        </footer>
+
+
+    </div>
+    <!--overflow hidden-->
+    <script src="./products.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

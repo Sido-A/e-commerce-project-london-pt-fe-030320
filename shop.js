@@ -1,187 +1,57 @@
-/**
- <main class="list-of-items">
-<!--item--><div class="item">
-    <div class="item-img"><img src="./img/druid.png" alt=""></div>
-    <div class="item-details">
-        <div class="name-type">
-            <p class="item-name">LOL</p>
-            <p class="item-type">Bed</p>
-        </div>
-        <!--name-type-->
-        <div class="price-submit">
-            <p class="item-price">200000</p>
-            <button class="addToCart" type="submit"><img src="./img/Add to Cart Button.png" alt=""></button>
-        </div>
-        <!--price-submit-->
-    </div>
-    <!--item-details-->
-</div>
-<!--item--> 
-</main>
- */
 const checkboxWithColor = document.querySelector(".color-check");
 const checkboxWithCategory = document.querySelector(".category-check");
-const listOfItems = document.querySelector(".list-of-items");
-const maxPrice = [...PRODUCTS].sort((a, b)=> b.price - a.price)[0].price;
-// console.log(maxPrice);
+const listOfItemsContainer = document.querySelector("#list-of-items");
+const listOfItemsWrapper = document.getElementsByClassName(".list-of-items");
+const filtersContainer = document.querySelector(".filter-wrapper");
+const priceRangeFromInput = filtersContainer.querySelector("input[name='from']");
+const priceRangeToInput = filtersContainer.querySelector("input[name='to']");
+const sortedTypes = [...new Set(PRODUCTS.map(product => product.type))];
+// console.log(sortedTypes);
+console.log(listOfItemsContainer);
 
+let currentPage = 1;
+let numberOfItems = 6;
 
-
-// main item window
-const eachItemsDisplay = (items) => {
-  items.forEach((item) => {
-    const divForItem = document.createElement("div");
-    divForItem.classList.add("item");
-
-    divForItem.innerHTML = `
-    <div class="item-img"><img src="./img/druid.png" alt=""></div>
-    <div class="item-details">
-        <div class="name-type">
-            <p class="item-name">${item.name}</p>
-            <p class="item-type">${item.type}</p>
-        </div>
-        <!--name-type-->
-        <div class="price-submit">
-            <p class="item-price">${item.price}</p>
-            <button class="addToCart" type="submit"><img src="./img/Add to Cart Button.png" alt=""></button>
-        </div>
-        <!--price-submit-->
-    </div>
-    <!--item-details-->
-    </div>`;
-    listOfItems.appendChild(divForItem);
-  });
-};
-
-eachItemsDisplay(PRODUCTS);
-
-// append each element with its color and value
-const eachColor = (colors)=> {
-    for (const color of colors) {
-        const colorDiv = document.createElement("div");
-        colorDiv.classList.add("individualColor")
-
-        const tickColors = document.createElement("input");
-        tickColors.setAttribute("type", "checkbox");
-        tickColors.id = color;
-        tickColors.value = color;
-
-        const colorName = document.createElement("label");
-        colorName.htmlFor = color;
-        colorName.classList.add("designedCheckbox")
-        colorName.innerText = color;
-
-        checkboxWithColor.appendChild(colorDiv); // append children on parent
-        colorDiv.appendChild(tickColors); // append input[type=checkbox] to child(colorDiv)
-        colorDiv.appendChild(colorName); // append label to child(colorDiv)    
-    }
-
-    ticked();
-}
-
-const eachCategory = (types)=>{
-    types.forEach(type => {
-
-        const categoryDiv = document.createElement("div");
-        categoryDiv.classList.add("individualCategory")
-
-        const tickCategory = document.createElement("input");
-        tickCategory.setAttribute("type", "checkbox");
-        tickCategory.id = type;
-        tickCategory.value = type;
-
-        const categoryName = document.createElement("label");
-        categoryName.htmlFor = type;
-        categoryName.classList.add("designedCheckbox")
-        categoryName.innerText = type;
-
-        checkboxWithCategory.appendChild(categoryDiv); // append children on parent
-        categoryDiv.appendChild(tickCategory); // append input[type=checkbox] to child(categoryDiv)
-        categoryDiv.appendChild(categoryName); // append label to child(categoryDiv)    
-    });
-
-}
-
-const applyFilters = (sortedColors,selectedColors)=> {
-    // console.log(sortedColors);
-    
-        console.log("sorted: "+sortedColors);
-        console.log("selected: "+selectedColors);
-        const sorted = sortedColors.forEach(sortedColor => sortedColor(selectedColors));
-        console.log("yo"+ sorted);
-        
-        if (selectedColors.includes(sorted)) {            
-            console.log("MATCHED");
-        }
-        
-
-    
-    /**
-    // const filteredProducts = PRODUCTS.filter(product =>{
-    //     if (product.price >= minPrice && product.price <= maxPrice) {
-    //         return true            
-    //     }else{
-    //         return false
-    //     }
-    // }).filter(sortedColors => {
-
-    // })
-    // eachItemsDisplay(selectedColors)
-         */
-
-} 
-
-// // get the element that got ticked
-const ticked = (sortedNewColorsArr)=> {
-    // const tickTheBox = document.querySelectorAll(".designedCheckbox");
-    const inputCheckbox = document.querySelectorAll("[type='checkbox']");    
-    const selectedColorsArr = [];    
-    
-    for (let i = 0; i < inputCheckbox.length; i++) {
-        const element = inputCheckbox[i];
-        // console.log(element); // 18
-        
-        element.addEventListener("click",(e)=> {
-            if (element.checked === true) {
-                // console.log(element.value);                
-                selectedColorsArr.push(element.value) 
-            } else {
-                console.log("by");                
-            }     
-            // console.log(selectedColorsArr);
-            applyFilters(sortedNewColorsArr, selectedColorsArr);     
-        })   
+const displayList = (items, wrapper,itemsPerPage, page)=> {        
+    wrapper.innerHTML = "";
+    page--;
+    let loopStart = itemsPerPage * page;
+    const paginatedItems = items.slice(loopStart, loopStart + itemsPerPage)
+    // console.log(paginatedItems);       
+    for (let i = 0; i < paginatedItems.length; i++) {
+        let item = paginatedItems[i]
+        // console.log(item); // 6 items 
+        renderProduct(items)
+ 
     }
 }
 
 
-// sorting duplicated colors
-const sortedColors = () => {
-    const newColorArr = [];
-    for (let i = 0; i < PRODUCTS.length; i++) {
-        const element = PRODUCTS[i];
-        // console.log(element.colors);
-        const eachColors = element.colors;
-        for (let j = 0; j < eachColors.length; j++) {
-            const el = eachColors[j];           
-            newColorArr.push(el);
-        }
+const setPagination = (items, wrapper, itemsPerPage) =>{    
+    wrapper.innerHTML = "";
+    let pageCount = Math.ceil(items.length / itemsPerPage);
+    // console.log(pageCount); // 4 pages    
+    for (let i = 1; i < pageCount + 1; i++) {
+        let buttons = paginationButton(i);
+        listOfItemsContainer.appendChild(buttons);
+
+      
     }
-    const sortedNewColorsArr = [...new Set(newColorArr)];    
-    eachColor(sortedNewColorsArr);
-    ticked(sortedNewColorsArr)
 }
-sortedColors();
 
-const sortedCategory = ()=> {
-    const sortedTypes = PRODUCTS.map(product => product.type);
-    const newTypeArr = new Set(sortedTypes);
-    eachCategory(newTypeArr);    
+const paginationButton = (page)=>{
+    let button = document.createElement("button")
+    button.innerText = page;
+    if (currentPage == page){
+        button.classList.add("active")
+    }
+
 }
-sortedCategory();
 
 
-const toggleFilter = ()=>{
+
+
+const toggleFilter = () => {
     const clickArrow = document.querySelectorAll(".arrow")
 
     clickArrow.forEach(arrow => {
@@ -196,10 +66,10 @@ const toggleFilter = ()=>{
                 arrow.style.transform = "rotate(-135deg)"
                 arrow.style.transitionDuration = ".6s"
                 if (e.target.classList.contains("collection-span")) {
-                    showOnOffCollection.style.display = "block"                    
-                } else if (e.target.classList.contains("color-span")){
+                    showOnOffCollection.style.display = "block"
+                } else if (e.target.classList.contains("color-span")) {
                     showOnOffColor.style.display = "block"
-                } else if(e.target.classList.contains("category-span")){
+                } else if (e.target.classList.contains("category-span")) {
                     showOnOffCategory.style.display = "block"
                 }
 
@@ -218,20 +88,179 @@ const toggleFilter = ()=>{
         })
 
     });
-}
+}  
 
 toggleFilter();
 
-const sliderDrag = ()=> {
+// price slider
+const priceSlider = () => {
     const slideContainer = document.querySelector(".slideContainer");
     const sliderMin = slideContainer.querySelector(".sliderMin");
     const sliderMax = slideContainer.querySelector(".sliderMax");
-    slideContainer.addEventListener("input", ()=>{
+    slideContainer.addEventListener("input", () => {
         const min = slideContainer.querySelector(".min");
         const max = slideContainer.querySelector(".max");
-        min.innerHTML = sliderMin.value;
-        max.innerHTML = sliderMax.value;
-    })    
+        min.innerHTML = `£${sliderMin.value}`;
+        max.innerHTML = `£${sliderMax.value}`;
+    })
 }
 
-sliderDrag();
+priceSlider();
+
+// render products, works either wth filter or nothing
+const renderProduct = product => {
+    const divForItem = document.createElement("div");
+    divForItem.classList.add("item");
+    // console.log(i);
+        divForItem.innerHTML = `
+    <div class="item-img"><img src="./img/image.1.png" alt=""></div>
+    <div class="item-details">
+        <div class="name-type">
+            <p class="item-name">${product.name}</p>
+            <p class="item-type">${product.type}</p>
+        </div>
+        <!--name-type-->
+        <div class="price-submit">
+            <p class="item-price">${product.price}</p>
+            <button class="addToCart" type="submit"><img src="./img/Add to Cart Button.png" alt=""></button>
+        </div>
+        <!--price-submit-->
+    </div>
+    <!--item-details-->
+    </div>`;
+    listOfItemsContainer.append(divForItem);
+    
+}
+
+
+
+// append each element with its color and value
+const renderColors = (colors) => {
+    colors.forEach(color =>{
+        const colorDiv = document.createElement("div");
+        colorDiv.classList.add("individualColor")
+
+        const tickColors = document.createElement("input");
+        tickColors.setAttribute("type", "checkbox");
+        tickColors.id = color;
+        tickColors.value = color;
+
+        const colorName = document.createElement("label");
+        colorName.htmlFor = color;
+        colorName.classList.add("designedCheckbox")
+        colorName.innerText = color;
+
+        checkboxWithColor.appendChild(colorDiv); // append children on parent
+        colorDiv.appendChild(tickColors); // append input[type=checkbox] to child(colorDiv)
+        colorDiv.appendChild(colorName); // append input[type=checkbox] to child(colorDiv)
+    })
+        
+}
+
+const renderCategories = (selectedTypes) => {
+    selectedTypes.forEach(selectedType => {
+
+        const categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("individualCategory")
+
+        const tickCategory = document.createElement("input");
+        tickCategory.setAttribute("type", "checkbox");
+        tickCategory.id = selectedType;
+        tickCategory.value = selectedType;
+
+        const categoryName = document.createElement("label");
+        categoryName.htmlFor = selectedType;
+        categoryName.classList.add("designedCheckbox")
+        categoryName.innerText = selectedType;
+
+        checkboxWithCategory.appendChild(categoryDiv); // append children on parent
+        categoryDiv.appendChild(tickCategory); // append input[type=checkbox] to child(categoryDiv)
+        categoryDiv.appendChild(categoryName); // append label to child(categoryDiv)    
+    });
+}
+
+// for check box colors
+const sortedColors = () => {
+    const newColorArr = [];
+    for (let i = 0; i < PRODUCTS.length; i++) {
+        const element = PRODUCTS[i];
+        // console.log(element.colors);
+        const eachColors = element.colors;
+        for (let j = 0; j < eachColors.length; j++) {
+            const el = eachColors[j];
+            newColorArr.push(el);
+        }
+    }
+    const sortedNewColorsArr = [...new Set(newColorArr)];
+    renderColors(sortedNewColorsArr);
+}
+
+sortedColors();
+
+// filtering user preference price/items
+const applyFilters = (priceFrom, priceTo, selectedColors, selectedTypes) => {
+    // console.log("applied", priceFrom, priceTo, selectedColors, selectedTypes);    
+    const filteredProducts = PRODUCTS.filter(product => {
+        // return true or false
+        if (product.price >= priceFrom && product.price <= priceTo) {
+            return true;
+        } else {
+            return false;
+        }
+    }).filter(product =>{
+        // console.log(product.colors);
+        const colors = product.colors;   
+        // https://stackoverflow.com/questions/16312528/check-if-an-array-contains-any-element-of-another-array-in-javascript
+        if (selectedColors.length == 0 ||  colors.some(color => selectedColors.includes(color))) {
+            return true;            
+        } else {
+            return false;
+        }
+    }).filter(product => {
+        // console.log(product.type);
+        const types = product.type
+        if (selectedTypes.length == 0 || selectedTypes.includes(types)) {
+            return true;            
+        } else {
+            return false;
+        }
+    })
+    renderProducts(filteredProducts);
+}
+
+// pass into applyFilters when user select filters
+filtersContainer.addEventListener("change", () => {
+
+    const from = parseInt(priceRangeFromInput.value);
+    const to = parseInt(priceRangeToInput.value);
+
+    const selectedColors = [];
+    const individualColorInputs = checkboxWithColor.querySelectorAll("input:checked")
+    individualColorInputs.forEach(checkedColor => {
+        // console.log(checkedColor.value);        
+        selectedColors.push(checkedColor.value)
+    })
+
+    const selectedCatagories = [];
+    const individualCategoriesInputs = checkboxWithCategory.querySelectorAll("input:checked")
+    individualCategoriesInputs.forEach(checkedCategories => {
+        // console.log(checkedCategories.value);
+        selectedCatagories.push(checkedCategories.value)
+    })
+    applyFilters(from, to, selectedColors, selectedCatagories);
+}) 
+
+const renderProducts = productsRender => {
+    listOfItemsContainer.innerText = "";
+    productsRender.forEach(product => {
+        renderProduct(product);
+    })
+}
+
+
+
+renderProducts(PRODUCTS);
+renderCategories(sortedTypes);
+displayList(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage);
+setPagination(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage)
+

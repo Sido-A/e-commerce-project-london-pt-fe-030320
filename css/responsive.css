@@ -1,0 +1,250 @@
+/* @media screen and (max-width: 320px){
+
+    .outer {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .top-header {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .flex-nav {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .navOne {
+        padding-left: 24px;
+        order: 2;
+    }
+
+    .left-nav  {
+        padding: 0;
+        margin: 20px 0 0 0;
+    }
+
+    .left-nav li {
+        padding: 0;
+    }
+    
+    .logo img{
+        max-width: 70%;
+    }
+    .right-nav {
+        padding: 0;
+    }
+
+    .right-nav li {
+        margin-right: 10px;
+    }
+
+    .left-nav >.list-item {
+        display: none;
+    }
+
+    .right-nav >.list-item {
+        display: none;
+    }
+
+
+    .search-filter {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .search-wrapper {
+        max-width: 200px;
+        margin: 0 auto;
+
+    }
+
+    .search-wrapper input {
+        background-size: 10%;
+        background-position: 1px 10px;
+    }
+
+
+    .filter-wrapper {
+        display: none;
+    }
+
+    .carousel-wrapper{
+        margin: 0;
+        width: 100%;
+        margin-top: 30px;
+        
+    }
+
+    .carousel-img {
+        height:auto;
+    }
+
+    .carousel-img img{
+        max-width: 100%;
+        height: 300px;
+    }
+
+    .bg-img-bk {
+        max-width: 100%;
+        height: 300px;
+    }
+
+        
+    .eye-catch {
+    margin-left: 10px;
+    }
+
+    .main-h1 {
+    font-size: 1.5rem;
+    padding-top: 64px;
+    }
+
+    .sub-h2 {
+    font-size: 1.6em;
+    border-bottom: 1px solid #fff;
+    width: 120px;
+    }
+
+    .mobile {
+        display: block;
+        padding-right: 8px;
+    }
+
+    .carousel-button-next,
+    .carousel-button-prev  {
+        border-color: transparent;
+    }
+
+    .carousel-radio {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        vertical-align: bottom;
+        height: 50%;
+        align-items: flex-end;
+        
+    }
+
+    .footer-inner {
+        /* font-size: .1em; */
+       /* flex-direction: column;
+        margin-top: 82px;
+    }
+
+    .sub-footer-nav {
+        order: 2;
+        margin-top: 52px;
+    }
+
+    .sub-footer-ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-size: 1.3em;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .sub-footer-ul li{
+        padding-right: 0;
+    }
+    
+    .sub-footer-ul li:last-child{
+        margin-right: 19px;
+    }
+
+    .sub-footer-ul a {
+        display: block;
+    }
+
+    .social-media-ul {
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 0;
+    }
+
+    .social-media-item {
+        padding: 0;
+    }
+
+    /* shop item page */
+/*
+    .two-colum-desktop {
+        flex-direction: column;
+    }
+
+    .mobile-best-match {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;        
+        width: 75%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .mobile-best-match select {
+        font-size: 2em;
+        padding: 5px 15px 2px 0;
+    }
+
+    .filter-by-title {
+        display: none;
+    }
+
+    .mobile-wrap {
+        display: none;
+    }
+
+    .mobile-filter {
+        font-size: .9em;
+        display: flex;
+        min-width: 205px;
+        margin: 0 auto;
+        padding: 10px 0 5px 5px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        
+    }
+
+    .arrow {
+        max-width: 12px;
+        height: 12px;
+        border: 2px solid;
+        border-color: transparent #000 #000 transparent;
+        top: 35%;
+        right: 0;
+        bottom: 0;
+        left: 90%;
+    }
+
+    .list-of-items {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .item-details {
+        border: 1px solid red;
+        overflow: hidden;
+    }
+
+    .item {
+        margin-right: 0;
+        height: 318px;
+    }
+    
+    .name-type {
+        max-width: 130px;
+        
+    }
+
+    .price-submit {
+        background-color: #fff;
+        width: 99px;
+        padding: 8px;
+    }
+    
+
+
+} */

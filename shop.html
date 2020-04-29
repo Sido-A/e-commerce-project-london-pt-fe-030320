@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalise.css">
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="./css/responsive.css">    
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">    
     <title>SOFAS -Shop</title>
 </head>
@@ -13,17 +14,17 @@
     <div class="overflowHidden">
         <header class="top-header outer">
             <div class="nav-inner inner flex-nav">
-                <nav>
+                <nav class="navOne">
                     <ul class="left-nav">
                         <li class="logo"><a href="#"><img src="./img/logo.desktop.png" alt="logo"></a></li>
                         <li class="list-item"><a href="./index.html" class="home">HOME</a></li>
-                        <li class="list-item"><a href="./shop.html" class="shop">SHOP</a></li>
+                        <li class="list-item current"><a href="./shop.html" class="shop">SHOP</a></li>
                         <li class="list-item"><a href="#" class="magazine">MAGAZINE</a></li>
                     </ul>
                 </nav>
-                <nav>
+                <nav class="navTwo">
                     <ul class="right-nav">
-                        <li class="list-item"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></li>
+                        <li><a href="#"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></a></li>
                         <li class="list-item"><a href="#">LOGIN</a></li>
                     </ul>
                 </nav>
@@ -34,22 +35,23 @@
     <div class="search-wrapper">
         <input id="searchInput" name="search" type="text" />
     </div><!-- search-wrapper -->
-    <div class="filter-wrapper">
+    <div class="match-wrapper mobile-best-match">
         <select name="bestMatch" id="bestMatch">
-            <option value="bestMatch">Best Match</option>
+            <option value="bestMatch">Best Match </option>
             <option value="highest">Price: Highest first</option>
             <option value="lowest">Price: Lowest first</option>
         </select>
     </div>
-    <!--filter-wrapper-->
+    <!--match-wrapper-->
 </form>
 <!--search-filter outer-->
 
 <div class="two-colum-desktop outer">
-<aside class="filter-by-wrapper left-side">
+<aside class="filter-wrapper left-side">
         <p class="filter-by-title">FILTER BY</p>
+        <p class="mobile-filter filter-title ">Filters<span class="arrow"></span> </p>
             <!-- test -->
-            <div class="collection-wrap">
+            <div class="collection-wrap mobile-wrap toggle-wrap">
                 <p class="collection-title filter-title" id="collectionTitle">Collection<span class="collection-span arrow down"></span>
                 </p>
                 <div class="collection-check toggle">
@@ -60,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="color-wrap">
+            <div class="color-wrap mobile-wrap toggle-wrap">
                 <p class="color-title filter-title" id="colorTitle">Color<span class="color-span arrow down"></span></p>
                 <div class="color-check toggle">
                 <!-- <div class="individualColor">
@@ -70,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="category-wrap">
+            <div class="category-wrap mobile-wrap toggle-wrap">
                 <p class="category-title filter-title" id="categoryTitle">Category<span class="category-span arrow down"></span></p>
                 <div class="category-check toggle">
                 <!-- <div class="individualCategory">
@@ -80,32 +82,31 @@
                 </div>
             </div>
             
-            <div class="price-range-wrap">
+            <div class="price-range-wrap mobile-wrap toggle-wrap">
                 <p class="price-range-title">Price Range</p>                    
                 <div class="slideContainer">
-                    <input type="range" min="0" max="50" value="0" class="slider sliderMin">
+                    <input name="from" type="range" min="0" max="50" value="0" class="slider sliderMin">
                     <p class="min">£0</p> 
-                    <input type="range" min="50" max="1000" value="1000" class="slider sliderMax">
-                    <p class="max">£10,000+</p>
+                    <input name="to" type="range" min="50" max="1000" value="1000" class="slider sliderMax">
+                    <p class="max">£1000+</p>
                 </div>
             </div>
 </aside>
 <!--filter-by-wrapper-->
 
-<main class="list-of-items">
+<main class="list-of-items" id="list-of-items">
    
 </main>
 
 </div><!--two-colum-desktop outer-->
 
-<div class="next-page-container outer">
-    <ul class="next-page">
-        <li class="page-number">1</li>
-        <li class="page-number">2</li>
-        <li class="page-number">3</li>
-        <li class="page-number">4</li>
-    </ul>
+<div class="pagination-wrapper outer">
+    <!-- <ul class="pagination">
+        <li class="page-number"><a href="#">1</a></li>
+    </ul> -->
 </div>
+
+<div class="page-numbers" id="pagination"></div>
 
 
 

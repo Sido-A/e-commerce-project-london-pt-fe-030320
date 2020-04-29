@@ -11,6 +11,10 @@ body {
   src: url("http://www.yoursite.com/fonts/Avenir_Next.otf");
 }
 
+.overflowHidden {
+  margin: 0;
+  padding: 0;
+}
 /*global style*/
 a,
 li,
@@ -30,10 +34,16 @@ h6 {
   margin: 0;
   padding: 0;
 }
+
 /*header & footer list style*/
 .list-item a {
   color: #22232b;
   font-weight: 900;
+}
+
+
+.current a{
+  color: #00c98d;
 }
 
 .list-item a:hover {
@@ -65,23 +75,23 @@ h6 {
 }
 .flex-nav {
   display: inline-flex;
-  vertical-align: middle;
+  justify-content: space-between;
   font-size: 0.9rem;
 }
 
 .left-nav {
   display: inline-flex;
-  width: 1009px;
-  padding: 26px 42px 0 0;
+  max-width: 1009px;
+  padding: 0 42px 0 0;
 }
 .left-nav li {
   padding-right: 42px;
 }
 
+
 .right-nav {
   width: 100%;
   display: flex;
-  padding: 26px 0 18px 65%;
 }
 
 .right-nav li {
@@ -99,7 +109,7 @@ h6 {
 
 /*individual style for search & filter*/
 .search-filter {
-  width: 1326px;
+  max-width: 1326px;
   margin: 0 auto;
   display: flex;
 }
@@ -130,14 +140,15 @@ h6 {
   box-shadow: 0 0 2px 1px #979797;
 }
 
-.filter-wrapper {
-  width: 298px;
-  max-width: 100%;
+.match-wrapper {
+  width: 100%;
+  max-width: 298px;
   margin-left: 45px;
 }
 
-.filter-wrapper select {
-  width: 298px;
+.match-wrapper select {
+  width: 100%;
+  max-width: 298px;
   font-size: 1.5rem;
   padding: 5px 10px;
   border: none;
@@ -163,6 +174,7 @@ h6 {
 }
 
 .carousel-img img {
+  width: 100%;
   max-width: 1326px;
 }
 
@@ -233,6 +245,10 @@ h6 {
   left: 2%;
 }
 
+.mobile {
+  display: none;
+}
+
 /*individual style for footer*/
 .footer {
   margin-top: 105px;
@@ -291,13 +307,18 @@ h6 {
 }
 
 .left-side {
-  width: 340px;
+  width: 100%;
+  max-width: 340px;
   margin: 0 auto;
   font-size: 1.5rem;
 }
 
 .filter-by-wrapper select {
   cursor: pointer;
+}
+
+.mobile-filter {
+  display: none;
 }
 
 
@@ -317,9 +338,14 @@ h6 {
   overflow: hidden;
 }
 
+.filter-title span {
+  padding: 8px;
+  /* background-color: red; */
+}
+
 .arrow {
   cursor: pointer;
-  width: 18px;
+  max-width: 18px;
   height: 18px;
   border: 3px solid;
   border-color: transparent #000 #000 transparent;
@@ -328,7 +354,7 @@ h6 {
   top: 10%;
   right: 0;
   bottom: 0;
-  left: 90%;
+  left: 85%;
   /* background-color: red; */
 }
 
@@ -352,12 +378,6 @@ h6 {
     cursor: pointer;
 }
 
-
-.designedCheckbox:checked{
-        background-color: #00c98d;
-
-}
-
 .designedCheckbox::after,
 .designedCheckbox::before {
     position: absolute;
@@ -371,7 +391,8 @@ h6 {
     left: 15px;
     padding: 2px;
     margin-top: -10px; /* the position of check box */
-    width: 20px;
+    width: 100%;
+    max-width: 20px;
     height: 20px;
     border: 2px solid #aaaaaa;
     border-radius: 6px;
@@ -380,7 +401,8 @@ h6 {
 .designedCheckbox::before {
     left: 24px; /* position of check */
     margin-top: -6px; /* position of check */
-    width: 7px; /* size of the box (tick inside) */
+    width: 100%;
+    max-width: 7px; /* size of the box (tick inside) */
     height: 13px; /* height of the box (tick inside) */
     border-right: 3px solid #0171bd;
     border-bottom: 3px solid #0171bd;
@@ -464,6 +486,7 @@ h6 {
 
 
 .list-of-items {
+  box-sizing: border-box;
   display: flex;
   flex: 1;
   flex-wrap: wrap;
