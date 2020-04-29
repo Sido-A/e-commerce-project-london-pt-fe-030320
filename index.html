@@ -36,13 +36,15 @@
     <div class="search-wrapper">        
         <input id="searchInput" name="search" type="text"/>
     </div><!-- search-wrapper -->
-    <div class="match-wrapper filter-wrapper">
-        <select class="bestMatch" id="bestMatch">
-            <option value="bestMatch">Best Match</option>
+    <div class="sort-options mobile-best-match">
+        <select name="match" id="match">
+            <option value="bestMatch">Best Match </option>
             <option value="highest">Price: Highest first</option>
             <option value="lowest">Price: Lowest first</option>
         </select>
-    </div><!--filter-wrapper-->
+        <span class="arrow"></span>
+    </div>
+    <!--sort-options-->
 </form><!--search-filter outer-->
 
 <main class="main carousel-wrapper outer">

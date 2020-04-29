@@ -1,53 +1,15 @@
 const checkboxWithColor = document.querySelector(".color-check");
 const checkboxWithCategory = document.querySelector(".category-check");
 const listOfItemsContainer = document.querySelector("#list-of-items");
-const listOfItemsWrapper = document.getElementsByClassName(".list-of-items");
+const pagination = document.querySelector("#pagination");
 const filtersContainer = document.querySelector(".filter-wrapper");
 const priceRangeFromInput = filtersContainer.querySelector("input[name='from']");
 const priceRangeToInput = filtersContainer.querySelector("input[name='to']");
+const sortOptionsDropdown = document.querySelector(".sort-options");
+const sortOptions = sortOptionsDropdown.querySelectorAll("OPTION")
+
 const sortedTypes = [...new Set(PRODUCTS.map(product => product.type))];
 // console.log(sortedTypes);
-console.log(listOfItemsContainer);
-
-let currentPage = 1;
-let numberOfItems = 6;
-
-const displayList = (items, wrapper,itemsPerPage, page)=> {        
-    wrapper.innerHTML = "";
-    page--;
-    let loopStart = itemsPerPage * page;
-    const paginatedItems = items.slice(loopStart, loopStart + itemsPerPage)
-    // console.log(paginatedItems);       
-    for (let i = 0; i < paginatedItems.length; i++) {
-        let item = paginatedItems[i]
-        // console.log(item); // 6 items 
-        renderProduct(items)
- 
-    }
-}
-
-
-const setPagination = (items, wrapper, itemsPerPage) =>{    
-    wrapper.innerHTML = "";
-    let pageCount = Math.ceil(items.length / itemsPerPage);
-    // console.log(pageCount); // 4 pages    
-    for (let i = 1; i < pageCount + 1; i++) {
-        let buttons = paginationButton(i);
-        listOfItemsContainer.appendChild(buttons);
-
-      
-    }
-}
-
-const paginationButton = (page)=>{
-    let button = document.createElement("button")
-    button.innerText = page;
-    if (currentPage == page){
-        button.classList.add("active")
-    }
-
-}
-
 
 
 
@@ -108,9 +70,11 @@ const priceSlider = () => {
 priceSlider();
 
 // render products, works either wth filter or nothing
-const renderProduct = product => {
+const renderProduct = (product,i) => {
+    // console.log(product);    
     const divForItem = document.createElement("div");
     divForItem.classList.add("item");
+    divForItem.id = `item_${i}`;
     // console.log(i);
         divForItem.innerHTML = `
     <div class="item-img"><img src="./img/image.1.png" alt=""></div>
@@ -131,6 +95,25 @@ const renderProduct = product => {
     listOfItemsContainer.append(divForItem);
     
 }
+
+let counter = 0;
+
+const updateCart = ()=>{
+    const updatedCarts = document.querySelectorAll(".addToCart");
+    updatedCarts.forEach(updatedCart=>{
+        updatedCart.addEventListener("click", (e) => {
+            const topCartButton = document.querySelector(".cartButtonSpan")
+            topCartButton.style.display = "block";
+            counter += 1;
+            topCartButton.innerText = counter;
+            e.target.nodeParent.classList.add("added");
+            console.log(e.target.nodeParent);
+            
+
+        })
+    })    
+}
+
 
 
 
@@ -195,7 +178,6 @@ const sortedColors = () => {
     renderColors(sortedNewColorsArr);
 }
 
-sortedColors();
 
 // filtering user preference price/items
 const applyFilters = (priceFrom, priceTo, selectedColors, selectedTypes) => {
@@ -228,6 +210,102 @@ const applyFilters = (priceFrom, priceTo, selectedColors, selectedTypes) => {
     renderProducts(filteredProducts);
 }
 
+
+let currentPage = 1;
+let numberOfItems = 6;
+// displayList(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage);
+const displayList = (products, listOfItemsContainer, itemsPerPage, page) => {    
+    listOfItemsContainer.innerHTML = "";
+    page--;
+    let loopStart = itemsPerPage * page;    
+    const paginatedItems = products.slice(loopStart, loopStart + itemsPerPage);
+    // console.log(paginatedItems);  // object array (6 items inside)    
+    // console.log(paginatedItems);
+    let itemArr = [];       
+    for (let i = 0; i < paginatedItems.length; i++) {
+        let item = paginatedItems[i]
+        itemArr.push(item);
+        // console.log(item); // 6 individual items 
+        // console.log(`container${listOfItemsContainer}, perPage${itemsPerPage}, page${page}`);    
+    }
+    renderProducts(itemArr);
+}
+
+// setPagination(PRODUCTS, pagination, numberOfItems, currentPage)
+const setPagination = (products, paginationWrapper, itemsPerPage) => {
+    // console.log(products);    
+    paginationWrapper.innerHTML = "";
+    // console.log(paginationWrapper);    
+    let pageCount = Math.ceil(products.length / itemsPerPage);
+    for (let i = 1; i < pageCount + 1; i++) {
+        // console.log(pageCount); // 4 pages
+        let buttons = paginationButton(i, products);
+        paginationWrapper.appendChild(buttons);
+    }
+}
+
+const paginationButton = (page, products) => {
+    let buttons = document.createElement("button")
+    buttons.innerText = page;
+    if (currentPage == page) {
+        // console.log(currentPage);
+        // console.log(page);    
+        buttons.classList.add("active");
+    }
+    buttons.addEventListener("click",()=>{
+        currentPage = page;
+        displayList(products, listOfItemsContainer, numberOfItems, currentPage);
+        let currentButton = document.querySelector(".page-numbers button.active");
+        currentButton.classList.remove("active");
+        buttons.classList.add("active")
+    })
+    return buttons;
+}
+
+// sort by alphabet(best match),price high to low, price low to high
+const applyOption = (sortOption)=>{    
+    if (sortOption === "priceBestMatch") {
+        PRODUCTS.sort((a, b) => {
+            // sort by alphabet
+            if (a.name < b.name) { return -1; }
+            if (a.name > b.name) { return 1; }
+            return 0;            
+        })
+    // sort by lower price
+    } else if (sortOption === "priceLower"){
+        PRODUCTS.sort((a,b)=>{
+            return a.price - b.price
+        })
+    //sort by higher price
+    } else if (sortOption === "priceHigher"){
+        PRODUCTS.sort((a,b)=>{
+            return b.price - a.price
+        })
+    }
+    return displayList(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage);
+}
+sortOptionsDropdown.addEventListener("change",(e)=>{
+    // console.log("price dropdown was changed", e.target.value);
+    applyOption(e.target.value)
+    
+})
+
+
+// const productDetail = (product) => {
+
+//     const individualItem = listOfItemsContainer.querySelectorAll(".item");
+//     individualItem.forEach(item => {
+//         console.log(item);
+        
+//         item.addEventListener("click", (e) => {
+//             console.log(item);
+//             console.log(PRODUCTS);
+//             console.log(e.target);
+//         })
+//     })
+// }
+
+
 // pass into applyFilters when user select filters
 filtersContainer.addEventListener("change", () => {
 
@@ -250,17 +328,22 @@ filtersContainer.addEventListener("change", () => {
     applyFilters(from, to, selectedColors, selectedCatagories);
 }) 
 
+// render each products
 const renderProducts = productsRender => {
+    // console.log(productsRender);    
     listOfItemsContainer.innerText = "";
-    productsRender.forEach(product => {
-        renderProduct(product);
+    productsRender.forEach((product, i) => {        
+        renderProduct(product,i);
     })
 }
 
 
-
-renderProducts(PRODUCTS);
+sortedColors();
+// renderProducts(PRODUCTS);
 renderCategories(sortedTypes);
 displayList(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage);
-setPagination(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage)
+setPagination(PRODUCTS, pagination, numberOfItems, currentPage);
+updateCart();
+productDetail(PRODUCTS);
+
 

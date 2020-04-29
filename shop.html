@@ -24,7 +24,7 @@
                 </nav>
                 <nav class="navTwo">
                     <ul class="right-nav">
-                        <li><a href="#"><img class="cartButton" src="./img/Cart Button.png" alt="Cart button" /></a></li>
+                        <li class="cartButton"><a href="#"><img class="cartButtonImg" src="./img/Cart Button.png" alt="Cart button" /><span class="cartButtonSpan"></span></a></li>
                         <li class="list-item"><a href="#">LOGIN</a></li>
                     </ul>
                 </nav>
@@ -35,14 +35,15 @@
     <div class="search-wrapper">
         <input id="searchInput" name="search" type="text" />
     </div><!-- search-wrapper -->
-    <div class="match-wrapper mobile-best-match">
-        <select name="bestMatch" id="bestMatch">
-            <option value="bestMatch">Best Match </option>
-            <option value="highest">Price: Highest first</option>
-            <option value="lowest">Price: Lowest first</option>
+    <div class="sort-options mobile-best-match">
+        <select name="match" id="match">
+            <option value="priceBestMatch">Best Match </option>
+            <option value="priceHigher">Price: Highest first</option>
+            <option value="priceLower">Price: Lowest first</option>
         </select>
+        <span class="arrow"></span>
     </div>
-    <!--match-wrapper-->
+    <!--sort-options-->
 </form>
 <!--search-filter outer-->
 
@@ -104,9 +105,8 @@
     <!-- <ul class="pagination">
         <li class="page-number"><a href="#">1</a></li>
     </ul> -->
-</div>
-
 <div class="page-numbers" id="pagination"></div>
+</div>
 
 
 
