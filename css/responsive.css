@@ -1,4 +1,4 @@
-/* @media screen and (max-width: 320px){
+@media screen and (max-width: 320px){
 
     .outer {
         max-width: 300px;
@@ -129,7 +129,7 @@
 
     .footer-inner {
         /* font-size: .1em; */
-       /* flex-direction: column;
+        flex-direction: column;
         margin-top: 82px;
     }
 
@@ -170,7 +170,6 @@
     }
 
     /* shop item page */
-/*
     .two-colum-desktop {
         flex-direction: column;
     }
@@ -247,4 +246,4 @@
     
 
 
-} */
+}
