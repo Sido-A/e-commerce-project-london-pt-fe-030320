@@ -1,159 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/normalise.css">
-    <link rel="stylesheet" href="./css/stylesheet.css">
-    <link rel="stylesheet" href="./css/responsive.css">    
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/normalise.css" />
+    <link rel="stylesheet" href="./css/stylesheet.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
     <title>Sido -SOFAS -Shop</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="overflowHidden">
-        <header class="top-header outer">
-            <div class="nav-inner inner flex-nav">
-                <nav class="navOne">
-                    <ul class="left-nav">
-                        <li class="logo"><a href="#"><img src="./img/logo.desktop.png" alt="logo"></a></li>
-                        <li class="list-item"><a href="./index.html" class="home">HOME</a></li>
-                        <li class="list-item current"><a href="./shop.html" class="shop">SHOP</a></li>
-                        <li class="list-item"><a href="#" class="magazine">MAGAZINE</a></li>
-                    </ul>
-                </nav>
-                <nav class="navTwo">
-                    <ul class="right-nav">
-                        <li class="cartButton"><a href="#"><img class="cartButtonImg" src="./img/Cart Button.png" alt="Cart button" /><span class="cartButtonSpan"></span></a></li>
-                        <li class="list-item"><a href="#">LOGIN</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    
-<form class="search-filter outer">
-    <div class="search-wrapper">
-        <input id="searchInput" name="search" type="text" />
-    </div><!-- search-wrapper -->
-    <div class="sort-options mobile-best-match">
-        <select name="match" id="match">
+      <header class="top-header outer">
+        <div class="nav-inner inner flex-nav">
+          <nav class="navOne">
+            <ul class="left-nav">
+              <li class="logo">
+                <a href="#"><img src="./img/logo.desktop.png" alt="logo" /></a>
+              </li>
+              <li class="list-item">
+                <a href="./index.html" class="home">HOME</a>
+              </li>
+              <li class="list-item current">
+                <a href="./shop.html" class="shop">SHOP</a>
+              </li>
+              <li class="list-item">
+                <a href="./preview.html" class="magazine">MAGAZINE</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="navTwo">
+            <ul class="right-nav">
+              <li class="cartButton">
+                <a href="#"
+                  ><img
+                    class="cartButtonImg"
+                    src="./img/Cart Button.png"
+                    alt="Cart button" /><span class="cartButtonSpan"></span
+                ></a>
+              </li>
+              <li class="list-item"><a href="#">LOGIN</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <form class="search-filter outer">
+        <div class="search-wrapper">
+          <input id="searchInput" name="search" type="text" />
+        </div>
+        <!-- search-wrapper -->
+        <div class="sort-options mobile-best-match">
+          <select name="match" id="match">
             <option value="priceBestMatch">Best Match </option>
             <option value="priceHigher">Price: Highest first</option>
             <option value="priceLower">Price: Lowest first</option>
-        </select>
-        <span class="arrow"></span>
-    </div>
-    <!--sort-options-->
-</form>
-<!--search-filter outer-->
+          </select>
+          <span class="arrow"></span>
+        </div>
+        <!--sort-options-->
+      </form>
+      <!--search-filter outer-->
 
-<div class="two-colum-desktop outer">
-<aside class="filter-wrapper left-side">
-        <p class="filter-by-title">FILTER BY</p>
-        <p class="mobile-filter filter-title ">Filters<span class="arrow"></span> </p>
-            <!-- test -->
-            <div class="collection-wrap mobile-wrap toggle-wrap">
-                <p class="collection-title filter-title" id="collectionTitle">Collection<span class="collection-span arrow down"></span>
-                </p>
-                <div class="collection-check toggle">
-                    <!-- <div class="individualColor">
-                            <input type="checkbox" name="collection" value="#">
-                            <label for="collection">Collection</label>
-                        </div> -->
-                </div>
+      <div class="two-colum-desktop outer">
+        <aside class="filter-wrapper left-side">
+          <p class="filter-by-title">FILTER BY</p>
+          <p class="mobile-filter filter-title">
+            Filters<span class="arrow"></span>
+          </p>
+          <!-- test -->
+          <div class="collection-wrap mobile-wrap toggle-wrap">
+            <p class="collection-title filter-title" id="collectionTitle">
+              Collection<span class="collection-span arrow down"></span>
+            </p>
+            <div class="collection-check toggle">
             </div>
+          </div>
 
-            <div class="color-wrap mobile-wrap toggle-wrap">
-                <p class="color-title filter-title" id="colorTitle">Color<span class="color-span arrow down"></span></p>
-                <div class="color-check toggle">
-                <!-- <div class="individualColor">
-                        <input type="checkbox" name="color" id="green" value="green">
-                        <label for="green">Color</label>
-                </div> -->
-                </div>
+          <div class="color-wrap mobile-wrap toggle-wrap">
+            <p class="color-title filter-title" id="colorTitle">
+              Color<span class="color-span arrow down"></span>
+            </p>
+            <div class="color-check toggle">
             </div>
+          </div>
 
-            <div class="category-wrap mobile-wrap toggle-wrap">
-                <p class="category-title filter-title" id="categoryTitle">Category<span class="category-span arrow down"></span></p>
-                <div class="category-check toggle">
-                <!-- <div class="individualCategory">
-                        <input type="checkbox" name="category" id="#" value="#">
-                        <label for="#">Category</label>
-                    </div> -->
-                </div>
+          <div class="category-wrap mobile-wrap toggle-wrap">
+            <p class="category-title filter-title" id="categoryTitle">
+              Category<span class="category-span arrow down"></span>
+            </p>
+            <div class="category-check toggle">
             </div>
-            
-            <div class="price-range-wrap mobile-wrap toggle-wrap">
-                <p class="price-range-title">Price Range</p>                    
-                <div class="slideContainer">
-                    <input name="from" type="range" min="0" max="50" value="0" class="slider sliderMin">
-                    <p class="min">£0</p> 
-                    <input name="to" type="range" min="50" max="1000" value="1000" class="slider sliderMax">
-                    <p class="max">£1000+</p>
-                </div>
+          </div>
+
+          <div class="price-range-wrap mobile-wrap toggle-wrap">
+            <p class="price-range-title">Price Range</p>
+            <div class="slideContainer">
+              <input
+                name="from"
+                type="range"
+                min="0"
+                max="50"
+                value="0"
+                class="slider sliderMin"
+              />
+              <p class="min">£0</p>
+              <input
+                name="to"
+                type="range"
+                min="50"
+                max="1000"
+                value="1000"
+                class="slider sliderMax"
+              />
+              <p class="max">£1000+</p>
             </div>
-</aside>
-<!--filter-by-wrapper-->
+          </div>
+        </aside>
+        <!--filter-by-wrapper-->
 
-<main class="list-of-items" id="list-of-items">
-   
-</main>
+        <main class="list-of-items" id="list-of-items"></main>
+      </div>
+      <!--two-colum-desktop outer-->
 
-</div><!--two-colum-desktop outer-->
-
-<div class="pagination-wrapper outer">
-    <!-- <ul class="pagination">
+      <div class="pagination-wrapper outer">
+        <!-- <ul class="pagination">
         <li class="page-number"><a href="#">1</a></li>
     </ul> -->
-<div class="page-numbers" id="pagination"></div>
-</div>
+        <div class="page-numbers" id="pagination"></div>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="footer outer">
-    <hr class="footer-line">
-    <div class="footer-inner inner">
-        <nav class="sub-footer-nav">
+      <footer class="footer outer">
+        <hr class="footer-line" />
+        <div class="footer-inner inner">
+          <nav class="sub-footer-nav">
             <ul class="sub-footer-ul">
-                <li class="list-item"><a href="#about">About us</a></li>
-                <li class="list-item"><a href="#help">How can we help</a></li>
-                <li class="list-item"><a href="#room">Shop by room</a></li>
-                <li class="list-item"><a href="#style">Shop by style</a></li>
+              <li class="list-item"><a href="#about">About us</a></li>
+              <li class="list-item"><a href="#help">How can we help</a></li>
+              <li class="list-item"><a href="#room">Shop by room</a></li>
+              <li class="list-item"><a href="#style">Shop by style</a></li>
             </ul>
-        </nav>
-        <!--footer-nav-->
-        <nav class="footer-social-media">
+          </nav>
+          <!--footer-nav-->
+          <nav class="footer-social-media">
             <ul class="social-media-ul">
-                <li class="list-item social-media-item instagram"><a href=""><img src="./img/instagram.png"
-                            alt=""></a></li>
-                <li class="list-item social-media-item facebook"><a href=""><img src="./img/facebook logo.png"
-                            alt=""></a></li>
-                <li class="list-item social-media-item twitter"><a href=""><img src="./img/twitter.png" alt=""></a></li>
+              <li class="list-item social-media-item instagram">
+                <a href=""><img src="./img/instagram.png" alt="" /></a>
+              </li>
+              <li class="list-item social-media-item facebook">
+                <a href=""><img src="./img/facebook logo.png" alt="" /></a>
+              </li>
+              <li class="list-item social-media-item twitter">
+                <a href=""><img src="./img/twitter.png" alt="" /></a>
+              </li>
             </ul>
-        </nav>
-        <!--footer-social-media-->
-    </div>
-    <!--footer-inner-->
-</footer>
-    
-    
+          </nav>
+          <!--footer-social-media-->
+        </div>
+        <!--footer-inner-->
+      </footer>
     </div>
     <!--overflow hidden-->
     <script src="./products.js"></script>
     <!-- <script src="./index.js"></script> -->
     <script src="./shop.js"></script>
-</body>
+  </body>
 </html>

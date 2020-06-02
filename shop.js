@@ -11,7 +11,24 @@ const sortOptionsDropdown = document.querySelector(".sort-options");
 const sortOptions = sortOptionsDropdown.querySelectorAll("OPTION");
 
 const sortedTypes = [...new Set(PRODUCTS.map((product) => product.type))];
-// console.log(sortedTypes);
+
+
+
+const selectProduct = (unique) => {
+  const item = document.querySelector(`#${unique}`);
+  item.addEventListener("click", () => {
+    const mapped = PRODUCTS.map((product) => {
+      if (product.name.match(item.id)) {
+        const itemName = JSON.stringify(product.name);
+        const productStringify = JSON.stringify(product);
+        localStorage.clear();
+        localStorage.setItem(itemName, productStringify);
+        return product;
+      }
+    }).filter((product) => product !== undefined);
+    // renderDetails(mapped);
+  });
+};
 
 const toggleFilter = () => {
   const clickArrow = document.querySelectorAll(".arrow");
@@ -23,7 +40,6 @@ const toggleFilter = () => {
 
     arrow.addEventListener("click", (e) => {
       if (e.target.classList.contains("down")) {
-        // console.log(e.target);
         e.target.classList.remove("down");
         arrow.style.transform = "rotate(-135deg)";
         arrow.style.transitionDuration = ".6s";
@@ -69,13 +85,16 @@ priceSlider();
 
 // render products, works either wth filter or nothing
 const renderProduct = (product, i) => {
-  // console.log(product);
   const divForItem = document.createElement("div");
-  divForItem.classList.add("item");
-  divForItem.id = `item_${i}`;
-  // console.log(i);
+  divForItem.classList.add("item", `${product.name}`);
+  // divForItem.id = `item_${i}`;
+  divForItem.id = `${product.name}`;
   divForItem.innerHTML = `
-    <div class="item-img"><img src="./img/image.1.png" alt=""></div>
+      <a href="./preview.html">
+
+    <div class="item-img">
+    <img src="./img/image.1.png" alt="">
+    </div>
     <div class="item-details">
         <div class="name-type">
             <p class="item-name">${product.name}</p>
@@ -89,12 +108,14 @@ const renderProduct = (product, i) => {
         <!--price-submit-->
     </div>
     <!--item-details-->
+    </a>
+
     </div>`;
   listOfItemsContainer.append(divForItem);
+  selectProduct(product.name);
 };
 
 let counter = 0;
-
 
 // append each element with its color and value
 const renderColors = (colors) => {
@@ -144,7 +165,6 @@ const sortedColors = () => {
   const newColorArr = [];
   for (let i = 0; i < PRODUCTS.length; i++) {
     const element = PRODUCTS[i];
-    // console.log(element.colors);
     const eachColors = element.colors;
     for (let j = 0; j < eachColors.length; j++) {
       const el = eachColors[j];
@@ -157,7 +177,6 @@ const sortedColors = () => {
 
 // filtering user preference price/items
 const applyFilters = (priceFrom, priceTo, selectedColors, selectedTypes) => {
-  // console.log("applied", priceFrom, priceTo, selectedColors, selectedTypes);
   const filteredProducts = PRODUCTS.filter((product) => {
     // return true or false
     if (product.price >= priceFrom && product.price <= priceTo) {
@@ -167,7 +186,6 @@ const applyFilters = (priceFrom, priceTo, selectedColors, selectedTypes) => {
     }
   })
     .filter((product) => {
-      // console.log(product.colors);
       const colors = product.colors;
       // https://stackoverflow.com/questions/16312528/check-if-an-array-contains-any-element-of-another-array-in-javascript
       if (
@@ -180,7 +198,6 @@ const applyFilters = (priceFrom, priceTo, selectedColors, selectedTypes) => {
       }
     })
     .filter((product) => {
-      // console.log(product.type);
       const types = product.type;
       if (selectedTypes.length == 0 || selectedTypes.includes(types)) {
         return true;
@@ -199,26 +216,20 @@ const displayList = (products, listOfItemsContainer, itemsPerPage, page) => {
   page--;
   let loopStart = itemsPerPage * page;
   const paginatedItems = products.slice(loopStart, loopStart + itemsPerPage);
-  // console.log(paginatedItems);  // object array (6 items inside)
-  // console.log(paginatedItems);
+
   let itemArr = [];
   for (let i = 0; i < paginatedItems.length; i++) {
     let item = paginatedItems[i];
     itemArr.push(item);
-    // console.log(item); // 6 individual items
-    // console.log(`container${listOfItemsContainer}, perPage${itemsPerPage}, page${page}`);
   }
   renderProducts(itemArr);
 };
 
 // setPagination(PRODUCTS, pagination, numberOfItems, currentPage)
 const setPagination = (products, paginationWrapper, itemsPerPage) => {
-  // console.log(products);
   paginationWrapper.innerHTML = "";
-  // console.log(paginationWrapper);
   let pageCount = Math.ceil(products.length / itemsPerPage);
   for (let i = 1; i < pageCount + 1; i++) {
-    // console.log(pageCount); // 4 pages
     let buttons = paginationButton(i, products);
     paginationWrapper.appendChild(buttons);
   }
@@ -228,10 +239,9 @@ const paginationButton = (page, products) => {
   let buttons = document.createElement("button");
   buttons.innerText = page;
   if (currentPage == page) {
-    // console.log(currentPage);
-    // console.log(page);
     buttons.classList.add("active");
   }
+
   buttons.addEventListener("click", () => {
     currentPage = page;
     displayList(products, listOfItemsContainer, numberOfItems, currentPage);
@@ -274,23 +284,8 @@ const applyOption = (sortOption) => {
   );
 };
 sortOptionsDropdown.addEventListener("change", (e) => {
-  // console.log("price dropdown was changed", e.target.value);
   applyOption(e.target.value);
 });
-
-// const productDetail = (product) => {
-
-//     const individualItem = listOfItemsContainer.querySelectorAll(".item");
-//     individualItem.forEach(item => {
-//         console.log(item);
-
-//         item.addEventListener("click", (e) => {
-//             console.log(item);
-//             console.log(PRODUCTS);
-//             console.log(e.target);
-//         })
-//     })
-// }
 
 // pass into applyFilters when user select filters
 filtersContainer.addEventListener("change", () => {
@@ -302,7 +297,6 @@ filtersContainer.addEventListener("change", () => {
     "input:checked"
   );
   individualColorInputs.forEach((checkedColor) => {
-    // console.log(checkedColor.value);
     selectedColors.push(checkedColor.value);
   });
 
@@ -311,34 +305,29 @@ filtersContainer.addEventListener("change", () => {
     "input:checked"
   );
   individualCategoriesInputs.forEach((checkedCategories) => {
-    // console.log(checkedCategories.value);
     selectedCatagories.push(checkedCategories.value);
   });
   applyFilters(from, to, selectedColors, selectedCatagories);
 });
 
-
 // only first 5 items get this function :/
 const updateCart = () => {
-    const updatedCarts = document.querySelectorAll(".addToCart");
-    updatedCarts.forEach((updatedCart) => {
-        updatedCart.addEventListener("click", (e) => {
-            const topCartButton = document.querySelector(".cartButtonSpan");
-            const itemWrapper = document.querySelector(".item")
-            console.log(itemWrapper);
+  const updatedCarts = document.querySelectorAll(".addToCart");
+  updatedCarts.forEach((updatedCart) => {
+    updatedCart.addEventListener("click", (e) => {
+      const topCartButton = document.querySelector(".cartButtonSpan");
+      const itemWrapper = document.querySelector(".item");
+      console.log(itemWrapper);
 
-            topCartButton.style.display = "block";
-            counter += 1;
-            topCartButton.innerText = counter;
-            //   e.target.add("added");
-
-        });
+      topCartButton.style.display = "block";
+      counter += 1;
+      topCartButton.innerText = counter;
     });
+  });
 };
 
 // render each products
 const renderProducts = (productsRender) => {
-  // console.log(productsRender);
   listOfItemsContainer.innerText = "";
   productsRender.forEach((product, i) => {
     renderProduct(product, i);
@@ -346,9 +335,7 @@ const renderProducts = (productsRender) => {
 };
 
 sortedColors();
-// renderProducts(PRODUCTS);
 renderCategories(sortedTypes);
 displayList(PRODUCTS, listOfItemsContainer, numberOfItems, currentPage);
 setPagination(PRODUCTS, pagination, numberOfItems, currentPage);
 updateCart();
-// productDetail(PRODUCTS);
